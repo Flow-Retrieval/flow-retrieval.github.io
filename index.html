@@ -153,7 +153,7 @@
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
@@ -161,7 +161,7 @@
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
   </div>
 </section>
@@ -170,43 +170,26 @@
 <section class="section">
   <div class="container is-max-desktop">
 
+    <!-- Method Overview. -->
     <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
+      <div class="column is-full-width">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+          <h2 class="title is-3">Method Overview</h2>
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
+            We learn a motion-centric latent space for retrieving motions similar to target data from prior data and further guide policy learning with optical flow.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+          <img src="./static/images/1_overview.png"
+                class="method-overview-image"
+                alt="Method Overview"/>
+          <ul>
+            <li><b>Motion-Centric Pretraining</b>: <span style="font-variant: small-caps;">FlowRetrieval</span> acquires a motion-centric latent space by computing optical flow between the current frame and a future frame of the robot's RGB visual observations, and employing a variational autoencoder (VAE) to embed the optical flow data.</li>
+            <li><b>Data Retrieval with the Learned Motion-Centric Latent Space</b>: We select the nearest neighbors of target task in the latent space from previously collected data.</li>
+            <li><b>Flow-Guided Learning</b>: During policy learning, <span style="font-variant: small-caps;">FlowRetrieval</span> leverages an auxiliary loss of predicting the optical flow as additional guidance for representation learning, encouraging the model to encode the image with enough details to reconstruct optical flow alongside predicting the action.</li>
+          </ul>
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+    <!--/ Method Overview. -->
 
     <!-- Animation. -->
     <div class="columns is-centered">
