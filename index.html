@@ -166,30 +166,31 @@
   </div>
 </section>
 
-
+<!-- Method Overview. -->
 <section class="hero is-light">
-  <div class="container is-max-desktop">
-    <!-- Method Overview. -->
-        <div class="content">
-          <h2 class="title is-3">Method Overview</h2>
-          <p>
-            We learn a motion-centric latent space for retrieving motions similar to target data from prior data and further guide policy learning with optical flow.
-          </p>
-          <img src="./static/images/1_overview.png"
-                class="method-overview-image"
-                alt="Method Overview"/>
-          <ul>
-            <li><b>Motion-Centric Pretraining</b>: <span style="font-variant: small-caps;">FlowRetrieval</span> acquires a motion-centric latent space by computing optical flow between the current frame and a future frame of the robot's RGB visual observations, and employing a variational autoencoder (VAE) to embed the optical flow data.</li>
-            <li><b>Data Retrieval with the Learned Motion-Centric Latent Space</b>: We select the nearest neighbors of target task in the latent space from previously collected data.</li>
-            <li><b>Flow-Guided Learning</b>: During policy learning, <span style="font-variant: small-caps;">FlowRetrieval</span> leverages an auxiliary loss of predicting the optical flow as additional guidance for representation learning, encouraging the model to encode the image with enough details to reconstruct optical flow alongside predicting the action.</li>
-          </ul>
-        </div>
-    <!--/ Method Overview. -->
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+          <div class="content">
+            <h2 class="title is-3">Method Overview</h2>
+            <p>
+              We learn a motion-centric latent space for retrieving motions similar to target data from prior data and further guide policy learning with optical flow.
+            </p>
+            <img src="./static/images/1_overview.png"
+                  class="method-overview-image"
+                  alt="Method Overview"/>
+            <ul>
+              <li><b>Motion-Centric Pretraining</b>: <span style="font-variant: small-caps;">FlowRetrieval</span> acquires a motion-centric latent space by computing optical flow between the current frame and a future frame of the robot's RGB visual observations, and employing a variational autoencoder (VAE) to embed the optical flow data.</li>
+              <li><b>Data Retrieval with the Learned Motion-Centric Latent Space</b>: We select the nearest neighbors of target task in the latent space from previously collected data.</li>
+              <li><b>Flow-Guided Learning</b>: During policy learning, <span style="font-variant: small-caps;">FlowRetrieval</span> leverages an auxiliary loss of predicting the optical flow as additional guidance for representation learning, encouraging the model to encode the image with enough details to reconstruct optical flow alongside predicting the action.</li>
+            </ul>
+          </div>
+    </div>
   </div>
 </section>
+<!--/ Method Overview. -->
 
+<!-- Experiments. -->
 <section class="section">
-  <!-- Experiments. -->
   <div class="container is-max-desktop">
     <h2 class="title is-3">Experiments</h2>
 
@@ -249,12 +250,85 @@
         </div>
       </div>
     </div>
+    <br/>
 
-    <h3 class="title is-4">Results</h3>
+    <h3 class="title is-4">Quantitative Results</h3>
+    <p style="text-align:center;"><img src="./static/images/5_results_full.png"/></p>
+    <br/>
+
+    <h3 class="title is-4">Qualitative Analysis</h3>
+    <p style="text-align:center;"><img src="./static/images/5_retrieval_viz.png"/></p>
+    <br/>
+    <p style="text-align:center;"><img src="./static/images/5_square_retrieval_bar.png"/></p>
 
   </div>
-  <!--/ Experiments. --> 
 </section>
+<!--/ Experiments. --> 
+
+<!-- Rollouts -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Rollouts</h2>
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h4 class="title is-6">Square Assembly</h4>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="content">
+              <h4 class="title is-6">LIBERO-Can</h4>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h4 class="title is-6">Bridge-Pot</h4>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="content">
+              <h4 class="title is-6">Bridge-Microwave</h4>
+              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <div class="content">
+              <h4 class="title is-6 has-text-centered">Franka-Pen-in-Cup</h4>
+              <video id="dollyzoom" autoplay controls muted loop playsinline style="width: 100%">
+                <source src="./static/videos/dollyzoom-stacked.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!--/ Rollouts. --> 
 
 <!-- 
 <section class="section" id="BibTeX">
