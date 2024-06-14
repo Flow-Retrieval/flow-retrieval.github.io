@@ -35,6 +35,20 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;  /* Maintains aspect ratio and fits within the container */
+    }
+</style>
 </head>
 <body>
 
@@ -274,20 +288,24 @@
           <div class="column">
             <div class="content">
               <h4 class="title is-6">Square Assembly</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/dollyzoom-stacked.mp4"
-                        type="video/mp4">
-              </video>
+              <div class="video-container">
+                <video id="" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/square.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
             </div>
           </div>
 
           <div class="column">
             <div class="content">
               <h4 class="title is-6">LIBERO-Can</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/dollyzoom-stacked.mp4"
-                        type="video/mp4">
-              </video>
+              <div class="video-container">
+                <video id="" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/libero.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
             </div>
           </div>
         </div>
@@ -296,8 +314,8 @@
           <div class="column">
             <div class="content">
               <h4 class="title is-6">Bridge-Pot</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/dollyzoom-stacked.mp4"
+              <video id="" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/bridge-pot.mov"
                         type="video/mp4">
               </video>
             </div>
@@ -306,8 +324,8 @@
           <div class="column">
             <div class="content">
               <h4 class="title is-6">Bridge-Microwave</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/dollyzoom-stacked.mp4"
+              <video id="" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/bridge-microwave.mov"
                         type="video/mp4">
               </video>
             </div>
@@ -318,7 +336,7 @@
           <div class="column is-half">
             <div class="content">
               <h4 class="title is-6 has-text-centered">Franka-Pen-in-Cup</h4>
-              <video id="dollyzoom" autoplay controls muted loop playsinline style="width: 100%">
+              <video id="" autoplay controls muted loop playsinline style="width: 100%">
                 <source src="./static/videos/dollyzoom-stacked.mp4"
                         type="video/mp4">
               </video>
