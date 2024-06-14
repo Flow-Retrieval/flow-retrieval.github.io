@@ -256,12 +256,31 @@
 
     <h3 class="title is-4">Quantitative Results</h3>
     <p style="text-align:center;"><img src="./static/images/5_results_full.png"/></p>
+    <div class="content">
+      <ul>
+        <li><span style="font-variant: small-caps;">FlowRetrieval</span> outperforms the best baseline method across different tasks, achieving an average of 14% higher success rate than the best baseline method in each domain (+10% in simulation,+19% in real).</li>
+        <li><span style="font-variant: small-caps;">FlowRetrieval</span> also achieves on average 27% higher success rate than the best retrieval-based prior method.</li>
+      </ul>
+    </div>
     <br/>
 
     <h3 class="title is-4">Qualitative Analysis</h3>
     <p style="text-align:center;"><img src="./static/images/5_retrieval_viz.png"/></p>
+    <div class="content">
+      <p><span style="font-variant: small-caps;">FlowRetrieval</span> retrieves similar motion from prior data while <b>BR</b> and <b>SR</b> retrsieve based on visual similarity of the state and consequently can retrieve adversarial data.</p>
+      <ul>
+        <li>In the <em>Square Assembly</em> example, both baselines end up retrieving data points where the robot moves towards the round peg. <span style="font-variant: small-caps;">FlowRetrieval</span> on the other hand selects a very similar motion toward the square peg even when the background color is completely different from that in target data.</li>
+        <li>In <em>LIBERO-Can</em>, <b>BR</b> and <b>SR</b> again focus mainly on visual similarity instead of the picking up motion and retrieved data points that have very different motion (moving downwards). However, <span style="font-variant: small-caps;">FlowRetrieval</span> retrieves the correct motion of picking up, even if it is picking up a different object than in the target task.</li>
+      </ul>
+    </div>
+    </p>
     <br/>
     <p style="text-align:center;"><img src="./static/images/5_square_retrieval_bar.png"/></p>
+    <p>
+      In the <em>Square Assembly</em> task, the data right after the robot picks up the nut is crucial: actions that move towards the wrong goal are adversarial data. The data points after the forking point, while possibly performing a different task, are considered non-harmful.
+      We can therefore analyze the quality of retrieved data under different retrieval methods by plotting the amount of different types of data retrieved from each stage of the task (split into 10 bins).
+      <span style="font-variant: small-caps;">FlowRetrieval</span> uniformly retrieves from prior useful data and retrieves little adversarial data, while baseline models either cannot effectively filter out the adversarial data or does not retrieve enough useful data at the bottleneck stage (between <em>pick up</em> and <em>transfer</em>) of the task.
+    </p>
 
   </div>
 </section>
