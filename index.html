@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Flow-Retrieval: Flow-Guided Data Retrieval for Few-Shot Imitation Learning</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +29,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/style.css"
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -57,7 +59,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span style="font-variant: small-caps;">FlowRetrieval</span>: Flow-Guided Data Retrieval for Few-Shot Imitation Learning</h1>
+          <!-- TODO: use css to replace span -->
+          <h1 class="title is-1 publication-title"><span class="textsc">FlowRetrieval</span>: Flow-Guided Data Retrieval for Few-Shot Imitation Learning</h1>
           <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
@@ -145,6 +148,65 @@
 </section>
 
 <section class="section">
+  <video src="./static/videos/overview.mp4" autoplay loop></video>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <p>
+        <span class="textsc">FlowRetrieval</span> leverages optical flow representations for <strong>extracting relevant prior data</strong> and <strong>guiding policy learning</strong> to maximally benefit from the retrieved data.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Rollouts -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/square_rollout.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/libero-can_rollout.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/bridge-pot_rollout.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/bridge-microwave_rollout.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/franka-pen-in-cup_rollout.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <p>
+          Our method uses only <strong>10 target task demonstrations</strong> to learn the policy.
+        </p>
+      </div>
+    </div> 
+  </div>
+</section>
+<!--/ Rollouts. --> 
+
+<section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -158,8 +220,8 @@
             However, existing data retrieval methods fall under two extremes: they either rely on the existence of <em>exact same</em> behaviors with visually similar objects in the prior data, which is impractical to assume; or they retrieve based on semantic similarity of high-level language descriptions of the task, which might not be that informative about the shared behaviors or motions across tasks.
             In this work, we investigate how we can leverage the vast amount of cross-task data that share similar <em>motion</em> with the target task to improve few-shot imitation learning.
             Our key insight is that motion-similar data carry rich information about the effects of actions and object interactions that can be leveraged during few-shot adaptation.
-            We propose <span style="font-variant: small-caps;">FlowRetrieval</span>, an approach that leverages optical flow representations for both extracting similar motions to target tasks from prior data, and for guiding learning of a policy that can maximally benefit from such data.
-            Our results show <span style="font-variant: small-caps;">FlowRetrieval</span> significantly outperforms prior methods across simulated and real-world domains, with over 4X performance of vanilla imitation.
+            We propose <span class="textsc">FlowRetrieval</span>, an approach that leverages optical flow representations for both extracting similar motions to target tasks from prior data, and for guiding learning of a policy that can maximally benefit from such data.
+            Our results show <span class="textsc">FlowRetrieval</span> significantly outperforms prior methods across simulated and real-world domains, with over 4X performance of vanilla imitation.
           </p>
         </div>
       </div>
@@ -193,9 +255,9 @@
                   class="method-overview-image"
                   alt="Method Overview"/>
             <ul>
-              <li><b>Motion-Centric Pretraining</b>: <span style="font-variant: small-caps;">FlowRetrieval</span> acquires a motion-centric latent space by computing optical flow between the current frame and a future frame of the robot's RGB visual observations, and employing a variational autoencoder (VAE) to embed the optical flow data.</li>
-              <li><b>Data Retrieval with the Learned Motion-Centric Latent Space</b>: We select the nearest neighbors of target task in the latent space from previously collected data.</li>
-              <li><b>Flow-Guided Learning</b>: During policy learning, <span style="font-variant: small-caps;">FlowRetrieval</span> leverages an auxiliary loss of predicting the optical flow as additional guidance for representation learning, encouraging the model to encode the image with enough details to reconstruct optical flow alongside predicting the action.</li>
+              <li><strong>Motion-Centric Pretraining</strong>: <span class="textsc">FlowRetrieval</span> acquires a motion-centric latent space by computing optical flow between the current frame and a future frame of the robot's RGB visual observations, and employing a variational autoencoder (VAE) to embed the optical flow data.</li>
+              <li><strong>Data Retrieval with the Learned Motion-Centric Latent Space</strong>: We select the nearest neighbors of target task in the latent space from previously collected data.</li>
+              <li><strong>Flow-Guided Learning</strong>: During policy learning, <span class="textsc">FlowRetrieval</span> leverages an auxiliary loss of predicting the optical flow as additional guidance for representation learning, encouraging the model to encode the image with enough details to reconstruct optical flow alongside predicting the action.</li>
             </ul>
           </div>
     </div>
@@ -255,8 +317,8 @@
     <p style="text-align:center;"><img src="./static/images/5_results_full.png"/></p>
     <div class="content">
       <ul>
-        <li><span style="font-variant: small-caps;">FlowRetrieval</span> outperforms the best baseline method across different tasks, achieving an average of 14% higher success rate than the best baseline method in each domain (+10% in simulation,+19% in real).</li>
-        <li><span style="font-variant: small-caps;">FlowRetrieval</span> also achieves on average 27% higher success rate than the best retrieval-based prior method.</li>
+        <li><span class="textsc">FlowRetrieval</span> outperforms the best baseline method across different tasks, achieving an average of 14% higher success rate than the best baseline method in each domain (+10% in simulation,+19% in real).</li>
+        <li><span class="textsc">FlowRetrieval</span> also achieves on average 27% higher success rate than the best retrieval-based prior method.</li>
       </ul>
     </div>
     <br/>
@@ -264,10 +326,10 @@
     <h3 class="title is-4">Qualitative Analysis</h3>
     <p style="text-align:center;"><img src="./static/images/5_retrieval_viz_old.png"/></p>
     <div class="content">
-      <p><span style="font-variant: small-caps;">FlowRetrieval</span> retrieves similar motion from prior data while <b>BR</b> and <b>SR</b> retrsieve based on visual similarity of the state and consequently can retrieve adversarial data.</p>
+      <p><span class="textsc">FlowRetrieval</span> retrieves similar motion from prior data while <strong>BR</strong> and <strong>SR</strong> retrsieve based on visual similarity of the state and consequently can retrieve adversarial data.</p>
       <ul>
-        <li>In the <em>Square Assembly</em> example, both baselines end up retrieving data points where the robot moves towards the round peg. <span style="font-variant: small-caps;">FlowRetrieval</span> on the other hand selects a very similar motion toward the square peg even when the background color is completely different from that in target data.</li>
-        <li>In <em>LIBERO-Can</em>, <b>BR</b> and <b>SR</b> again focus mainly on visual similarity instead of the picking up motion and retrieved data points that have very different motion (moving downwards). However, <span style="font-variant: small-caps;">FlowRetrieval</span> retrieves the correct motion of picking up, even if it is picking up a different object than in the target task.</li>
+        <li>In the <em>Square Assembly</em> example, both baselines end up retrieving data points where the robot moves towards the round peg. <span class="textsc">FlowRetrieval</span> on the other hand selects a very similar motion toward the square peg even when the background color is completely different from that in target data.</li>
+        <li>In <em>LIBERO-Can</em>, <strong>BR</strong> and <strong>SR</strong> again focus mainly on visual similarity instead of the picking up motion and retrieved data points that have very different motion (moving downwards). However, <span class="textsc">FlowRetrieval</span> retrieves the correct motion of picking up, even if it is picking up a different object than in the target task.</li>
       </ul>
     </div>
     </p>
@@ -275,8 +337,8 @@
     <p style="text-align:center;"><img src="./static/images/app_franka.png"/></p>
     <div class="content">
       <ul>
-        <li>When retrieving from the <em>PnP</em> dataset, <span style="font-variant: small-caps;">FlowRetrieval</span> focuses on the pick-up and transfer stage of the target task, and does not retrieve the placing motions from the prior dataset, effectively filtering adversarial prior data.</li>
-        <li>When retrieving from the <em>Wild</em> dataset, we see that <span style="font-variant: small-caps;">FlowRetrieval</span> retrieves viewpoints better aligned with that in the target task, while ProprioRetrieval retrieves very different viewpoints (sometimes the robot is not even in the view -- see example in rightmost column, second from bottom).</li>
+        <li>When retrieving from the <em>PnP</em> dataset, <span class="textsc">FlowRetrieval</span> focuses on the pick-up and transfer stage of the target task, and does not retrieve the placing motions from the prior dataset, effectively filtering adversarial prior data.</li>
+        <li>When retrieving from the <em>Wild</em> dataset, we see that <span class="textsc">FlowRetrieval</span> retrieves viewpoints better aligned with that in the target task, while ProprioRetrieval retrieves very different viewpoints (sometimes the robot is not even in the view -- see example in rightmost column, second from bottom).</li>
       </ul>
     </div>
     <br/>
@@ -284,81 +346,12 @@
     <p>
       In the <em>Square Assembly</em> task, the data right after the robot picks up the nut is crucial: actions that move towards the wrong goal are adversarial data. The data points after the forking point, while possibly performing a different task, are considered non-harmful.
       We can therefore analyze the quality of retrieved data under different retrieval methods by plotting the amount of different types of data retrieved from each stage of the task (split into 10 bins).
-      <span style="font-variant: small-caps;">FlowRetrieval</span> uniformly retrieves from prior useful data and retrieves little adversarial data, while baseline models either cannot effectively filter out the adversarial data or does not retrieve enough useful data at the bottleneck stage (between <em>pick up</em> and <em>transfer</em>) of the task.
+      <span class="textsc">FlowRetrieval</span> uniformly retrieves from prior useful data and retrieves little adversarial data, while baseline models either cannot effectively filter out the adversarial data or does not retrieve enough useful data at the bottleneck stage (between <em>pick up</em> and <em>transfer</em>) of the task.
     </p>
 
   </div>
 </section>
 <!--/ Experiments. --> 
-
-<!-- Rollouts -->
-<section class="hero is-light">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Rollouts</h2>
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h4 class="title is-6">Square Assembly</h4>
-              <div class="video-container">
-                <video id="" autoplay controls muted loop playsinline height="100%">
-                  <source src="./static/videos/square_rollout.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="content">
-              <h4 class="title is-6">LIBERO-Can</h4>
-              <div class="video-container">
-                <video id="" autoplay controls muted loop playsinline height="100%">
-                  <source src="./static/videos/libero-can_rollout.mp4"
-                          type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <div class="content">
-              <h4 class="title is-6">Bridge-Pot</h4>
-              <video id="" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/bridge-pot_rollout.mov"
-                        type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="content">
-              <h4 class="title is-6">Bridge-Microwave</h4>
-              <video id="" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/bridge-microwave_rollout.mov"
-                        type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <div class="content">
-              <h4 class="title is-6 has-text-centered">Franka-Pen-in-Cup</h4>
-              <video id="" autoplay controls muted loop playsinline style="width: 100%">
-                <source src="./static/videos/franka-pen-in-cup_rollout.mp4"
-                        type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<!--/ Rollouts. --> 
 
 <!-- 
 <section class="section" id="BibTeX">
